@@ -17,7 +17,13 @@ const registerUser = async credentials => {
   const newUser = await User.create(credentials);
   newUser.setPassword(credentials.password);
 
+  await newUser.save();
+
   return newUser;
+};
+
+const loginUser = async (id, token) => {
+  await User.findByIdAndUpdate(id, token);
 };
 
 const createToken = ({ _id }) => {
@@ -38,6 +44,7 @@ module.exports = {
   findUserByEmail,
   findUserById,
   registerUser,
+  loginUser,
   createToken,
   verifyToken,
 };
