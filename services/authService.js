@@ -7,6 +7,12 @@ const findUserByEmail = async email => {
   return user;
 };
 
+const findUserById = async id => {
+  const user = await User.findById(id);
+
+  return user;
+};
+
 const registerUser = async credentials => {
   const newUser = await User.create(credentials);
   newUser.setPassword(credentials.password);
@@ -22,8 +28,16 @@ const createToken = ({ _id }) => {
   return token;
 };
 
+const verifyToken = (token, secretKey) => {
+  const { id } = jwt.verify(token, secretKey);
+
+  return id;
+};
+
 module.exports = {
   findUserByEmail,
+  findUserById,
   registerUser,
   createToken,
+  verifyToken,
 };
