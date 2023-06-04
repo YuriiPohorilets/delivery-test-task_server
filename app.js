@@ -4,6 +4,8 @@ const cors = require('cors');
 const path = require('path');
 const connectDb = require('./db/connection');
 
+const authRoutes = require('./routes/api/auth');
+
 const configPath = path.join(__dirname, '.env');
 
 require('dotenv').config({
@@ -17,6 +19,8 @@ const formatsLogger = app.get('env') === 'development' ? 'dev' : 'short';
 app.use(logger(formatsLogger));
 app.use(cors());
 app.use(express.json());
+
+app.use('/api/auth', authRoutes);
 
 connectDb();
 
