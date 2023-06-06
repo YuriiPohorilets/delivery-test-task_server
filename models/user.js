@@ -11,30 +11,15 @@ const userSchema = new Schema(
       unique: true,
     },
 
-    password: {
-      type: String,
-      required: [true, 'Password is required'],
-    },
+    password: { type: String, required: [true, 'Password is required'] },
 
-    name: {
-      type: String,
-      required: [true, 'Name is required'],
-    },
+    name: { type: String, required: [true, 'Name is required'] },
 
-    phone: {
-      type: String,
-      required: [true, 'Phone is required'],
-    },
+    phone: { type: String, required: [true, 'Phone is required'] },
 
-    address: {
-      type: String,
-      required: [true, 'Address is required'],
-    },
+    address: { type: String, required: [true, 'Address is required'] },
 
-    token: {
-      type: String,
-      default: null,
-    },
+    token: { type: String, default: null },
   },
 
   { versionKey: false, timestamps: true }

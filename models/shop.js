@@ -10,11 +10,11 @@ const shopSchema = new Schema({
     type: String,
   },
 
-  description: {
+  imgUrl: {
     type: String,
   },
 });
 
-const Shop = model('shops', shopSchema);
+const Shop = model('shop', shopSchema);
 
 module.exports = Shop;

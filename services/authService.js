@@ -22,14 +22,19 @@ const registerUser = async credentials => {
   return newUser;
 };
 
-const loginUser = async (id, token) => {
-  await User.findByIdAndUpdate(id, token);
+const loginUser = async (_id, token, refreshToken) => {
+  await User.findByIdAndUpdate(_id, { token, refreshToken });
+};
+
+const logoutUser = async _id => {
+  await User.findByIdAndUpdate(_id, { token: null });
 };
 
 const createToken = ({ _id }) => {
   const { SECRET_KEY } = process.env;
   const payload = { id: _id };
-  const token = jwt.sign(payload, SECRET_KEY, { expiresIn: '1h' });
+
+  const token = jwt.sign(payload, SECRET_KEY, { expiresIn: '12h' });
 
   return token;
 };
@@ -45,6 +50,7 @@ module.exports = {
   findUserById,
   registerUser,
   loginUser,
+  logoutUser,
   createToken,
   verifyToken,
 };

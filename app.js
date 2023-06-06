@@ -5,6 +5,8 @@ const path = require('path');
 const connectDb = require('./db/connection');
 
 const authRoutes = require('./routes/api/auth');
+const shopRoutes = require('./routes/api/shops');
+const orderRoutes = require('./routes/api/orders');
 
 const configPath = path.join(__dirname, '.env');
 
@@ -21,6 +23,8 @@ app.use(cors());
 app.use(express.json());
 
 app.use('/api/auth', authRoutes);
+app.use('/api/shops', shopRoutes);
+app.use('/api/order', orderRoutes);
 
 connectDb();
 
