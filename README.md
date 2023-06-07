@@ -70,4 +70,4 @@ The API follows the following format:
 
 # [Frontend repository](https://github.com/YuriiPohorilets/delivery-test-task_client)
 
-# [ЖView a demo](https://yuriipohorilets.github.io/delivery-test-task_client/)
+# [View a demo](https://yuriipohorilets.github.io/delivery-test-task_client/)
